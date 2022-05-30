@@ -53,12 +53,12 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✯ **مرحبا عزيزي ↤ {message.from_user.mention()} !**\n
+        f"""✯ **مرحبا عزيزي في سورس ايفاثون ↤ {message.from_user.mention()} !**\n
 ✯ **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) **
 ** ◈︙يتيح لك تشغيل الموسيقى والفيديو في مجموعات . **
 ◈︙اضفني مشرف مع صلاحيه اضافه مستخدمين .**
- ** ◈︙الحساب المساعد :  @{ASSISTANT_NAME} **
-◈︙المطور : **[{ALIVE_NAME}](https://t.me/{OWNER_NAME}) **
+** ◈︙الحساب المساعد : @{ASSISTANT_NAME} **
+** ◈︙المبرمج : **[{ALIVE_NAME}](https://t.me/{OWNER_NAME}) **
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -72,14 +72,14 @@ async def start_(client: Client, message: Message):
                 [InlineKeyboardButton("‹ الاوامــر الكامله المعربــه ›", callback_data="cbvamp")],                 
                 [
                     InlineKeyboardButton("‹ الاوامــــر ›", callback_data="cbcmds"),
-                    InlineKeyboardButton("‹ الــمــطــور ›", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("‹ المبرمج ›", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
                         "‹ كــروب الــدعـم › ", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "‹ 𝐒𝐎𝐔𝐑𝐂𝐄 › ", url=f"https://t.me/AOOOU"
+                        "‹ السورس › ", url=f"https://t.me/AOOOU"
                     ),
                 ],
                 [
@@ -113,7 +113,7 @@ async def alive(client: Client, message: Message):
                         "‹ كــروب الــدعـم › ", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "‹ 𝐒𝐎𝐔𝐑𝐂𝐄 › ", url=f"https://t.me/AOOOU"
+                        "‹ السورس › ", url=f"https://t.me/AOOOU"
                     ),
                 ],
                 [
