@@ -54,13 +54,13 @@ def song(_, message):
         m.edit("✗ لم يتم العثور على الاغنية\n\nيرجى إعطاء اسم أغنية صالح")
         print(str(e))
         return
-    m.edit("📥 جاري تحميل الملف...")
+    m.edit("𖠧 جاري تحميل الملف...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 الرافع @{BOT_USERNAME} 👑المالك: @{OWNER_NAME} قناه البوت: @{UPDATES_CHANNEL} **"
+        rep = f"** الرافع @{BOT_USERNAME} المبرمج: @{OWNER_NAME} قناه السورس: @{UPDATES_CHANNEL} **"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
@@ -114,7 +114,7 @@ async def vsong(client, message):
     except Exception as e:
         print(e)
     try:
-        msg = await message.reply("📥 **🎧 الرافع @{BOT_USERNAME} 👑المالك: @{OWNER_NAME} قناه البوت: @{UPDATES_CHANNEL} ...**")
+        msg = await message.reply("𖠧 ** الرافع @{BOT_USERNAME} المبرمج: @{OWNER_NAME} قناه السورس: @{UPDATES_CHANNEL} ...**")
         with YoutubeDL(ydl_opts) as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
@@ -135,11 +135,11 @@ async def vsong(client, message):
         print(e)
 
 
-@Client.on_message(command(["lyric","لمات",  f"lyric@{BOT_USERNAME}"]))
+@Client.on_message(command(["lyric","كلمات",  f"lyric@{BOT_USERNAME}"]))
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **قسم باارسال اسم المقطع**")
+            await message.reply_text("» **قم باارسال اسم المقطع**")
             return
         query = message.text.split(None, 1)[1]
         rep = await message.reply_text("🔎 **جاري البحث عن كلمات...**")
