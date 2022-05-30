@@ -63,16 +63,16 @@ async def skip(client, m: Message):
         elif op == 1:
             await m.reply("✓ قوائم الانتظار ** فارغة. ** \n\n** • خروج المستخدم من الدردشة الصوتية ** ")
         elif op == 2:
-            await m.reply("🗑️م سح قوائم الانتظار ** \n \n ** • مغادرة المستخدم الآلي للدردشة الصوتية ** ")
+            await m.reply(" مسح قوائم الانتظار ** \n \n ** • مغادرة المستخدم الآلي للدردشة الصوتية ** ")
         else:
             await m.reply_photo(
                 photo=f"{IMG_3}",
-                caption=f"⏭ **تم الخطي الئ المسار التالي**\n\n🏷 **الاسم:** [{op[0]}]({op[1]})\n💭 **المجموعة:** `{chat_id}`\n💡 **الحالة:** `Playing`\n🎧 **طلب بواسطة:** {m.from_user.mention()}",
+                caption=f">> **تم الخطي الئ المسار التالي**\n\n✯ **الاسم:** [{op[0]}]({op[1]})\n💭 **المجموعة:** `{chat_id}`\n💡 **الحالة:** `Playing`\n🎧 **طلب بواسطة:** {m.from_user.mention()}",
                 reply_markup=keyboard,
             )
     else:
         skip = m.text.split(None, 1)[1]
-        OP = "🗑 **تمت إزالة الأغنية من قائمة الانتظار:**"
+        OP = " **تمت إزالة الأغنية من قائمة الانتظار:**"
         if chat_id in QUEUE:
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
@@ -116,7 +116,7 @@ async def pause(client, m: Message):
         try:
             await call_py.pause_stream(chat_id)
             await m.reply(
-                "⏸ **تم ايقاف المسار موقتآ**\n\n• **لٲستئناف البث استخدم**\n» /resume الامر."
+                "𖠧 **تم ايقاف المسار موقتآ**\n\n• **لٲستئناف البث استخدم**\n» /resume الامر."
             )
         except Exception as e:
             await m.reply(f"✗ **خطاء:**\n\n`{e}`")
@@ -134,7 +134,7 @@ async def resume(client, m: Message):
         try:
             await call_py.resume_stream(chat_id)
             await m.reply(
-                "▶️ **تم استئناف المسار**\n\n• **لايقاف البث موقتآ استخدم**\n» /pause الامر"
+                ">> **تم استئناف المسار**\n\n• **لايقاف البث موقتآ استخدم**\n» /pause الامر"
             )
         except Exception as e:
             await m.reply(f"✗ **خطاء:**\n\n`{e}`")
@@ -152,7 +152,7 @@ async def mute(client, m: Message):
         try:
             await call_py.mute_stream(chat_id)
             await m.reply(
-                "🔇 **تم كتم الصوت**\n\n• **لرفع الكتم استخدم**\n» /unmute الامر"
+                "✓ **تم كتم الصوت**\n\n• **لرفع الكتم استخدم**\n» /unmute الامر"
             )
         except Exception as e:
             await m.reply(f"✗ **خطاء:**\n\n`{e}`")
@@ -170,7 +170,7 @@ async def unmute(client, m: Message):
         try:
             await call_py.unmute_stream(chat_id)
             await m.reply(
-                "🔊 **تم رفع الكتم**\n\n• **لكتم الصوت استخدم**\n» /mute الامر"
+                "✓ **تم رفع الكتم**\n\n• **لكتم الصوت استخدم**\n» /mute الامر"
             )
         except Exception as e:
             await m.reply(f"✗ **خطاء:**\n\n`{e}`")
@@ -184,13 +184,13 @@ async def cbpause(_, query: CallbackQuery):
         return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
+        return await query.answer("✯ المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
             await call_py.pause_stream(chat_id)
             await query.edit_message_text(
-                "⏸ توقف البث موقتآ", reply_markup=bttn
+                "✗ توقف البث موقتآ", reply_markup=bttn
             )
         except Exception as e:
             await query.edit_message_text(f"✗ **خطاء:**\n\n`{e}`", reply_markup=bcl)
@@ -204,13 +204,13 @@ async def cbresume(_, query: CallbackQuery):
         return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
+        return await query.answer("✯ المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
             await call_py.resume_stream(chat_id)
             await query.edit_message_text(
-                "▶️ تم استئناف البث", reply_markup=bttn
+                ">> تم استئناف البث", reply_markup=bttn
             )
         except Exception as e:
             await query.edit_message_text(f"✗ **خطاء:**\n\n`{e}`", reply_markup=bcl)
@@ -243,13 +243,13 @@ async def cbmute(_, query: CallbackQuery):
         return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡  المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر!", show_alert=True)
+        return await query.answer("✯  المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر!", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
             await call_py.mute_stream(chat_id)
             await query.edit_message_text(
-                "🔇 تم ايقاف الصوت", reply_markup=bttn
+                "✗ تم ايقاف الصوت", reply_markup=bttn
             )
         except Exception as e:
             await query.edit_message_text(f"✗ **خطاء:**\n\n`{e}`", reply_markup=bcl)
@@ -263,13 +263,13 @@ async def cbunmute(_, query: CallbackQuery):
         return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
+        return await query.answer("✯ المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
             await call_py.unmute_stream(chat_id)
             await query.edit_message_text(
-                "🔊 تم تشغيل الصوت", reply_markup=bttn
+                "✓ تم تشغيل الصوت", reply_markup=bttn
             )
         except Exception as e:
             await query.edit_message_text(f"✗ **خطاء:**\n\n`{e}`", reply_markup=bcl)
