@@ -20,10 +20,10 @@ def gen_chlog(repo, diff):
     d_form = "%d/%m/%y || %H:%M"
     for c in repo.iter_commits(diff):
         ch_log += (
-            f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b>"
-            f"<a href={upstream_repo_url.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 👨‍💻 <code>{c.author}</code>"
+            f"\n\n◈︙ <b>{c.count()}</b> ◈︙ <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b>"
+            f"<a href={upstream_repo_url.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 𖠧 <code>{c.author}</code>"
         )
-        tldr_log += f"\n\n💬 {c.count()} 🗓 [{c.committed_datetime.strftime(d_form)}]\n[{c.summary}] 👨‍💻 {c.author}"
+        tldr_log += f"\n\n◈︙ {c.count()} ◈︙ [{c.committed_datetime.strftime(d_form)}]\n[{c.summary}] 𖠧 {c.author}"
     if ch_log:
         return str(ch + ch_log), str(ch_tl + tldr_log)
     return ch_log, tldr_log
@@ -53,7 +53,7 @@ def updater():
 @sudo_users_only
 async def update_repo(_, message: Message):
     chat_id = message.chat.id
-    msg = await message.reply("🔄 `processing update...`")
+    msg = await message.reply("↺ `processing update...`")
     update_avail = updater()
     if update_avail:
         await msg.edit("✓ update finished\n\n• bot restarted, back active again in 1 minutes.")
