@@ -17,12 +17,12 @@ from config import (
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
-f"""مرحبآ عزيزي↤‹ [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) ›!\n
-🤖 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) **
-** ◈︙يتيح لك تشغيل الموسيقى والفيديو في مجموعات . **
+f"""مرحبآ عزيزي في سورس ايفاثون .↤‹ [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) ›!\n
+**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) **
+**◈︙يتيح لك تشغيل الموسيقى والفيديو في مجموعات . **
 **◈︙اضفني مشرف مع صلاحيه اضافه مستخدمين .**
- **◈︙الحساب المساعد :  @{ASSISTANT_NAME}**
-◈︙المطور : **[{ALIVE_NAME}](https://t.me/{OWNER_NAME}) **
+**◈︙الحساب المساعد : @{ASSISTANT_NAME}**
+**◈︙المطور : **[{ALIVE_NAME}](https://t.me/{OWNER_NAME}) **
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -40,10 +40,10 @@ f"""مرحبآ عزيزي↤‹ [{query.message.chat.first_name}](tg://user?id={
                 ],
                 [
                     InlineKeyboardButton(
-                        "‹ جــروب الــدعـم ›", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "‹ كــروب الــدعـم ›", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "‹ 𝐒𝐎𝐔𝐑𝐂𝐄 ›", url=f"https://t.me/AOOOU"
+                        "‹ السورس ›", url=f"https://t.me/AOOOU"
                     ),
                 ],
                 [
@@ -62,7 +62,7 @@ async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
         f""" ◈︙الدليل الأساسي لاستخدام هذا البوت:
 
- 1 ↤ أولاً ، أضفني إلى مجموعتك .
+1 ↤ أولاً ، أضفني إلى مجموعتك .
  ↤ بعد ذلك ، قم بترقيتي كمشرف ومنح جميع الصلاحيات باستثناء الوضع الخفي .
  ↤ بعد ترقيتي ، اكتب «تحديث» او /reload مجموعة لتحديث بيانات المشرفين .
 3 ↤ أضف  @{ASSISTANT_NAME} إلى مجموعتك أو اكتب او «انضم»  /userbotjoin لدعوة حساب المساعد .
@@ -72,7 +72,7 @@ async def cbguides(_, query: CallbackQuery):
 
 › إذا كانت لديك أسئلة  حول هذا البوت ، فيمكنك إخبارنا منن خلال مجموعه الدعم الخاصة بي هنا ↤ @{GROUP_SUPPORT}
 
-◈︙قناة البوت @AOOOU .
+◈︙قناة السورس @AOOOU .
 __""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton(" ‹ رجوع › ", callback_data="cbstart")]]
@@ -87,7 +87,7 @@ async def cbcmds(_, query: CallbackQuery):
 
 ◈︙قم بالضغط علي الزر الذي تريده لمعرفه الاوامر لكل فئه منهم .
 
-◈︙قناة البوت »  @AOOOU  .""",
+◈︙قناة السورس »  @AOOOU  .""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -130,16 +130,16 @@ async def cbbasic(_, query: CallbackQuery):
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""  »
- » /playlist  او «تحكم» ↤ تظهر لك قائمة التشغيل
- » /videoاو «تنزيل» + الاسم  تنزيل فيديو من youtube
- » /song +  او« تحميل» الاسم تنزيل صوت من youtube
+» /playlist  او «تحكم» ↤ تظهر لك قائمة التشغيل
+» /videoاو «تنزيل» + الاسم  تنزيل فيديو من youtube
+» /song +  او« تحميل» الاسم تنزيل صوت من youtube
 » /volume  او «الصوت»+ الرقم لضبط مستوئ الصوت
 » /reload  او «تحديث» لتحديث البوت و قائمة المشرفين
 » /userbotjoin  او «انضم» لاستدعاء حساب المساعد
 » /userbotleave  او «غادر» لطرد حساب المساعد 
- » /pingاو«تيست» - إظهار حالة البوت بينغ
- » /alive   او «السورس» إظهار معلومات البوت  (في المجموعه) 
-  قناة البوت @{UPDATES_CHANNEL}
+» /pingاو«تيست» - إظهار حالة البوت بينغ
+» /alive   او «السورس» إظهار معلومات البوت  (في المجموعه) 
+◈︙قناة البوت @{UPDATES_CHANNEL}
 __""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("‹ رجوع ›", callback_data="cbcmds")]]
@@ -149,7 +149,7 @@ __""",
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the sudo commands:
+        f"""𖠧 here is the sudo commands:
 
 » /rmw  »او «مسح- clean all raw files
 » /rmd  » او «تنظيف- clean all downloaded files
@@ -158,7 +158,7 @@ async def cbsudo(_, query: CallbackQuery):
 » /restart «او «تنصيب - restart your bot
 » /leaveall»او «غادرالجميع - order userbot to leave from all group
 
- ◈︙قناة البوت @{UPDATES_CHANNEL}
+◈︙قناة البوت @{UPDATES_CHANNEL}
 """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("‹ رجوع ›", callback_data="cbcmds")]]
@@ -227,9 +227,9 @@ async def cbbasic(_, query: CallbackQuery):
 
 ◈︙ريستارت » لاعادة تشغيل البوت .
 
-◈︙غادرالجميع  » » لمغادره الحساب المساعد لجميع جروبات .
+◈︙غادر الجميع  » » لمغادره الحساب المساعد لجميع جروبات .
 ━━━━━━━━━━━━━━
- قناة السورس » @{UPDATES_CHANNEL}
+◈︙قناة السورس » @{UPDATES_CHANNEL}
 __""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("‹ رجوع ›", callback_data="cbcmds")]]
