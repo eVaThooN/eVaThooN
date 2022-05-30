@@ -61,9 +61,9 @@ async def play(c: Client, m: Message):
                 InlineKeyboardButton(text="‹ اغــلاق ›", callback_data="cls"),
                 ],
               [InlineKeyboardButton(ALIVE_NAME, url=f"t.me/{OWNER_NAME}"),
-              InlineKeyboardButton("‹ 𝐒𝐎𝐔𝐑𝐂𝐄 ›", url=f"t.me/{UPDATES_CHANNEL}"),
+              InlineKeyboardButton("‹ السورس ›", url=f"t.me/{UPDATES_CHANNEL}"),
                 ],
-              [InlineKeyboardButton("‹ اضافه البوت اللي مجموعتك ›", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),              
+              [InlineKeyboardButton("‹ اضافه البوت الى مجموعتك ›", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),              
             ]
         ]
     )
@@ -121,7 +121,7 @@ async def play(c: Client, m: Message):
 
     if replied:
         if replied.audio or replied.voice:
-            suhu = await replied.reply("📥 **الحساب المساعد منضم بلفعل وجاري تنزيل الصوت...**")
+            suhu = await replied.reply("𖠧 **الحساب المساعد منضم بلفعل وجاري تنزيل الصوت...**")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -279,7 +279,7 @@ async def stream(c: Client, m: Message):
                 InlineKeyboardButton(text="‹ اغــلاق ›", callback_data="cls"),
               ],
               [InlineKeyboardButton(ALIVE_NAME, url=f"t.me/{OWNER_NAME}"),
-              InlineKeyboardButton("‹ 𝐒𝐎𝐔𝐑𝐂𝐄 ›", url=f"t.me/{UPDATES_CHANNEL}"),
+              InlineKeyboardButton("‹ السورس ›", url=f"t.me/{UPDATES_CHANNEL}"),
                 ],
               [InlineKeyboardButton("‹ اضافه البوت اللي مجموعتك ›", url=f"http://t.me/{BOT_USERNAME}?startgroup=new"),               
             ]
