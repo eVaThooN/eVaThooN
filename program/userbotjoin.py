@@ -34,7 +34,7 @@ async def join_group(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(     
-            f"🚨برجاء التاكد من عدم حظر الحساب المساعد في المجموعه  🚨 \n\n** او ربما لم يتمكن حساب المساعد من الانضمام إلى مجموعتك بسبب كثرة طلبات الانضمام **"
+            f"𖠧برجاء التاكد من عدم حظر الحساب المساعد في المجموعه  𖠧 \n\n** او ربما لم يتمكن حساب المساعد من الانضمام إلى مجموعتك بسبب كثرة طلبات الانضمام **"
             "\n\n**أو تواصل مع المطور @aashekelsafar او أضف مساعدًا يدويًا @Olinyomu  إلى مجموعتك وحاول مرة أخرى**",
         )
         return
@@ -48,7 +48,7 @@ async def join_group(client, message):
 @authorized_users_only
 async def leave_one(client, message):
     try:
-        await USER.send_message(message.chat.id, "✓ الحساب المساعد غادر مجموعتك بنجاح🥺")
+        await USER.send_message(message.chat.id, "✓ الحساب المساعد غادر مجموعتك بنجاح.")
         await USER.leave_chat(message.chat.id)
     except BaseException:
         await message.reply_text(
@@ -58,7 +58,7 @@ async def leave_one(client, message):
         return
 
 
-@Client.on_message(command(["leaveall","غادرالجميع", f"leaveall@{BOT_USERNAME}"]))
+@Client.on_message(command(["leaveall","غادر الجميع", f"leaveall@{BOT_USERNAME}"]))
 @sudo_users_only
 async def leave_all(client, message):
     if message.from_user.id not in SUDO_USERS:
@@ -66,7 +66,7 @@ async def leave_all(client, message):
 
     left = 0
     failed = 0
-    lol = await message.reply("🔄 **userbot** leaving all chats !")
+    lol = await message.reply("↺ **userbot** leaving all chats !")
     async for dialog in USER.iter_dialogs():
         try:
             await USER.leave_chat(dialog.chat.id)
